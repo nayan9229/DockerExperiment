@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+    online-ide:
+        build: .
+        environment:
+            - C9_WORKSPACE=/cloud9/workspace
+        volumes:
+            - ./workspace:/cloud9/workspace
+        ports:
+            - 5001:5001
+        command: nodemon server.js -p 5001 -l 0.0.0.0 --auth admin:admin1234
